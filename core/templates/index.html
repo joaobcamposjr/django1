@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django 1 - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <center>
+    <h1>Home</h1>
+    <img src="{% static 'images/django_logo.png' %}">
+    <h2>{{ curso }}</h2>
+    <p>{{ outro }}</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in produtos %}
+            <tr>
+                <td><a href="{% url 'product' product.pk %}"> {{ product.name }}</a></td>
+                <td>{{ product.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button onclick="teste();">Clique aqui</button>
+    </center>
+
+
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
